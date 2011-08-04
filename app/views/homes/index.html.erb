@@ -1,0 +1,13 @@
+<% title "Homes" %>
+
+<table>
+  <tr>
+    <th>Name</th>
+  </tr>
+  <% for home in @homes %>
+    <tr>
+      <td><%= home.name %></td>
+    </tr>
+  <% end %>
+</table>
+
