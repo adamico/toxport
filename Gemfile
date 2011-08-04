@@ -5,6 +5,10 @@ gem 'rails', '3.1.0.rc5'
 # Bundle edge Rails instead:
 # gem 'rails',     :git => 'git://github.com/rails/rails.git'
 
+gem 'jquery-rails'
+gem 'haml'
+gem 'devise'
+
 group :development do
   gem 'sqlite3'
   gem 'nifty-generators'
@@ -17,9 +21,6 @@ group :assets do
   gem 'coffee-rails', "~> 3.1.0.rc"
   gem 'uglifier'
 end
-
-gem 'jquery-rails'
-gem 'haml'
 
 group :test do
   gem 'mocha'

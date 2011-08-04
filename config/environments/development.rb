@@ -24,4 +24,7 @@ Toxport::Application.configure do
 
   # Do not compress assets
   config.assets.compress = false
+
+  # For devise mailer
+  config.action_mailer.default_url_options = { :host => 'localhost:3000' }
 end
