@@ -5,8 +5,10 @@ gem 'rails', '3.1.0.rc5'
 # Bundle edge Rails instead:
 # gem 'rails',     :git => 'git://github.com/rails/rails.git'
 
-gem 'sqlite3'
-gem 'haml'
+group :development do
+  gem 'sqlite3'
+  gem 'nifty-generators'
+end
 
 # Gems used only for assets and not required
 # in production environments by default.
@@ -17,6 +19,20 @@ group :assets do
 end
 
 gem 'jquery-rails'
+gem 'haml'
+
+group :test do
+  gem 'mocha'
+  gem 'cucumber-rails'
+  # database_cleaner is not required, but highly recommended
+  gem 'database_cleaner'
+  gem 'factory_girl_rails'
+end
+
+group :test, :development do
+  gem "rspec-rails", "~> 2.6"
+  gem 'spork', '~> 0.9.0.rc'
+end
 
 # Use unicorn as the web server
 # gem 'unicorn'
