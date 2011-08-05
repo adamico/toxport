@@ -1,8 +1,12 @@
 %nav.hmenu
-  - if user_signed_in?
+  - if signed_in?
     %ul
-      %li= "#{t('devise.common.hello')}, #{current_user.username}"
-      %li= link_to t('devise.common.sign_out'), destroy_user_session_path, :method => 'delete' 
-      %li= link_to t('devise.registrations.edit_profile.edit'), edit_user_registration_path
+      - if user_signed_in?
+        %li= "#{t('devise.common.hello')}, #{current_user.username}"
+        %li= link_to t('devise.common.sign_out'), destroy_user_session_path, :method => 'delete' 
+        %li= link_to t('devise.registrations.edit_profile.edit'), edit_user_registration_path
+      - else
+        %li= "#{t('devise.common.hello')}, #{current_admin.username} (admin)"
+        %li= link_to t('devise.common.sign_out'), destroy_admin_session_path, :method => 'delete' 
   - else
     = link_to t('devise.common.sign_in'), new_user_session_path

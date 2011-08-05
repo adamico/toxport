@@ -4,22 +4,19 @@ Feature: Authentication
   Should authenticate themselves to the application
   To avoid wasting time
 
-  Scenario Outline: user tries to authenticate
-    Given the following users exist:
-      |username|password|email             |
-      |myuser  |mypass  |myuser@example.com|
-    When I visit the user authentication page
-    And I enter the username "<username>"
-    And I enter the password "<password>"
-    And I press the "devise.common.sign_in" button
-    Then I should <expectation> a "devise.sessions.signed_in" message
+  Scenario Outline: logging in
+    When I login as a <resource> with "<username>" and "<password>"
+    Then I should see a "devise.sessions.signed_in" message
     Examples:
-      | username  | password  | expectation |
-      | myuser    | mypass    | see         |
-      | tizio     | pass      | not see     |
+      | resource  | username | password  |
+      | user      | myuser   | secret    |
+      | admin     | myadmin  | secret    |
 
-  Scenario: log out
-    When I login
+  Scenario Outline: loggin out
+    When I login as a <resource> with "user" and "password"
     And I logout
-    Then I should see a "devise.sessions.signed_out" message
     And I should see a "devise.common.sign_in" message
+    Examples:
+      | resource |
+      | user     |
+      | admin    |
