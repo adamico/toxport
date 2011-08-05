@@ -1,0 +1,22 @@
+<h2>Edit <%= resource_name.to_s.humanize %></h2>
+
+<%= simple_form_for(resource, :as => resource_name, :url => registration_path(resource_name), :html => { :method => :put }) do |f| %>
+  <%= f.error_notification %>
+
+  <div class="inputs">
+    <%= f.input :email, :autofocus => true %>
+    <%= f.input :password, :hint => t("devise.registrations.edit_profile.password_instruction"), :required => false %>
+    <%= f.input :password_confirmation, :required => false %>
+    <%= f.input :current_password, :hint => t("devise.registrations.edit_profile.current_password_instruction"), :required => true %>
+  </div>
+
+  <div class="actions">
+    <%= f.button :submit, t('devise.registrations.edit_profile.update') %>
+  </div>
+<% end %>
+
+<h3><%= t('devise.registrations.edit_profile.cancel_my_account')%></h3>
+
+<p><%= t('devise.registrations.edit_profile.unhappy?') %> <%= link_to t('devise.registrations.edit_profile.cancel_my_account'), registration_path(resource_name), :confirm => t('devise.registrations.edit_profile.are_you_sure?'), :method => :delete %>.</p>
+
+<%= link_to t('devise.registrations.edit_profile.back'), :back %>

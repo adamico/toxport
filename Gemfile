@@ -8,6 +8,7 @@ gem 'rails', '3.1.0.rc5'
 gem 'jquery-rails'
 gem 'haml'
 gem 'devise'
+gem 'simple_form'
 
 group :development do
   gem 'sqlite3'
