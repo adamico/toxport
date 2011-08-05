@@ -1,0 +1,10 @@
+#encoding: utf-8
+fr:
+  actions:
+    new: "Rajouter %{model}"
+    edit: "Modifier %{model}"
+    index: "Liste"
+  flash:
+    create: "%{resource} créé(e) avec succès."
+    update: "%{resource} mis(e) à jour avec succès."
+    destroy: "%{resource} détruit(e) avec succès."

@@ -1,8 +1,6 @@
 When /^I visit the (.*) authentication page$/ do |resource|
-  path = ""
-  path << "/#{resource.pluralize}" unless resource == "user"
-  path << "/sign_in"
-  visit path
+  base_path = (resource == "admin") ? resource : resource.pluralize
+  visit "/#{base_path}/sign_in"
 end
 
 When /^I enter the (.*) (.*) "(.*)"$/ do |resource, field, value|

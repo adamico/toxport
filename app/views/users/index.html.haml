@@ -1,0 +1,10 @@
+- title "#{t('actions.index')} #{t('activerecord.models.user').pluralize}"
+
+- if @users.any?
+  %ul
+    - @users.each do |user|
+      %li= user.username
+- else
+  No users
+
+%p= link_to t('actions.new', :model => t("activerecord.models.user")), new_user_path

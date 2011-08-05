@@ -1,14 +1,13 @@
 Toxport::Application.routes.draw do
-  devise_for :admins
-
+  devise_for :admins, :path => "admin"
   devise_for :users do
-    get "sign_in", :to => "devise/sessions#new"
+    get "profile", :to => "devise/registrations#edit"
   end
 
   authenticate :admin do
-    resources :users
+    resources :users, :path => "/admin/users"
   end
-  
+
   root :to => "home#index"
 
   # The priority is based upon order of creation:
