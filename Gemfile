@@ -6,7 +6,7 @@ gem 'rails', '3.1.0.rc5'
 # gem 'rails',     :git => 'git://github.com/rails/rails.git'
 
 gem 'jquery-rails'
-gem 'haml'
+gem 'haml-rails'
 gem 'devise'
 gem 'simple_form'
 
@@ -29,6 +29,7 @@ group :test do
   # database_cleaner is not required, but highly recommended
   gem 'database_cleaner'
   gem 'factory_girl_rails'
+  gem 'launchy'
 end
 
 group :test, :development do
