@@ -28,7 +28,6 @@ Feature: Manage users
     And I should see "sempronio"
     And I should see "gaio"
 
-  @focus
   Scenario: manual password reset for a user
     Given the following users exist:
       |username |email             |password|
@@ -36,5 +35,3 @@ Feature: Manage users
     When I go to the users page
     And I follow "Reset password"
     Then I should be on the new password page
-
-
