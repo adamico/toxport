@@ -14,3 +14,27 @@ Feature: Manage users
     And I fill in "user_password_confirmation" with "password"
     And I press "Créer un(e) Utilisateur"
     Then 1 user should exist
+
+  Scenario: List users
+    Given the following users exist:
+      |username |email             |password|
+      |tizio    |tizio@test.com    |secret  |
+      |caio     |caio@test.com     |secret  |
+      |sempronio|sempronio@test.com|secret  |
+      |gaio     |gaio@test.com     |secret  |
+    When I go to the users page
+    Then I should see "tizio"
+    And I should see "caio"
+    And I should see "sempronio"
+    And I should see "gaio"
+
+  @focus
+  Scenario: manual password reset for a user
+    Given the following users exist:
+      |username |email             |password|
+      |tizio    |tizio@test.com    |secret  |
+    When I go to the users page
+    And I follow "Reset password"
+    Then I should be on the new password page
+
+

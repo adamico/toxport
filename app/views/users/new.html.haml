@@ -1,13 +1,3 @@
 - title t('users.new')
 
-= simple_form_for @user do |f|
-  = f.error_notification
-
-  .inputs
-    = f.input :username
-    = f.input :email
-    = f.input :password
-    = f.input :password_confirmation
-
-  .actions
-    = f.button :submit
+= render 'form', :user => @user

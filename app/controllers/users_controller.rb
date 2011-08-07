@@ -11,6 +11,8 @@ class UsersController < ApplicationController
     @user = User.new(params[:user])
     if @user.save
       redirect_to users_path, :notice => flash_message(@user)
+    else
+      render :new
     end
   end
 end
